@@ -13,7 +13,11 @@ export const Home = () => {
 	const { playSong, setQueue, setPlaylistUUID } = usePlayer();
 	const [query, setQuery] = useState('');
 
-	const { data: tracks, refetch } = useQuery({
+	const {
+		data: tracks,
+		refetch,
+		isLoading,
+	} = useQuery({
 		queryKey: ['tracks'],
 		queryFn: async () => {
 			const { data } = await api.get<ITrack[]>(`tracks`, {
@@ -64,6 +68,11 @@ export const Home = () => {
 			</div>
 
 			<div className="flex flex-col m-auto mt-24 w-full gap-0.5">
+				{isLoading && (
+					<div className="flex justify-center">
+						<Icon icon="svg-spinners:3-dots-scale" fontSize={50} />
+					</div>
+				)}
 				{tracks?.map((track, index) => (
 					<Track track={track} key={index} callback={() => play(track)} />
 				))}
