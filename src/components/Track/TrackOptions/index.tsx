@@ -36,9 +36,9 @@ export const TrackOptions = ({
 				open={openDialog}
 				handler={() => undefined}
 				placeholder={undefined}
-				className="bg-transparent h-[calc(100dvh_-_50px)] text-white"
+				className="absolute top-0 h-[calc(100dvh_-_20px)] bg-transparent text-white"
 			>
-				<div className="flex flex-col w-full h-full items-center font-semibold">
+				<div className="flex h-full w-full flex-col items-center font-semibold">
 					<div className="flex flex-col items-center gap-0.5 text-center">
 						<TrackImage
 							thumbnail={track.thumbnail}
@@ -46,17 +46,16 @@ export const TrackOptions = ({
 							className="rounded-sm"
 						/>
 						<span className="">{track.title}</span>
-						<span className="text-gray-500 text-xs">{track.artist}</span>
+						<span className="text-xs text-gray-500">{track.artist.name}</span>
 					</div>
-					<div className="mt-10 flex flex-col gap-8 w-full text- font-medium">
+					<div className="text- mt-10 flex w-full flex-col gap-8 font-medium">
 						<AddToPlaylist track={track} />
 						<RemoveFromPlaylist track={track} playlist={playlist} />
 						<AddToQueue track={track} callback={toggleDialog} />
-						<RemoveFromPlaylist track={track} playlist={playlist} />
 						<Download track={track} />
 					</div>
 					<div
-						className="mt-auto flex justify-center cursor-pointer"
+						className="mt-auto flex cursor-pointer justify-center"
 						onClick={toggleDialog}
 					>
 						Fechar

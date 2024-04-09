@@ -9,9 +9,8 @@ export class MySubClassedDexie extends Dexie {
 
 	constructor() {
 		super('cosmic');
-		this.version(0.1).stores({
-			playlists:
-				'++id, title, uuid, *tracks.title, *tracks.deezerId, *tracks.thumbnail, *tracks.artist, *tracks.duration.label, *tracks.duration.seconds, *tracks.bgColor',
+		this.version(0.3).stores({
+			playlists: '++id, title, uuid, *tracks',
 			downloads: '++id, deezerId, base64 ',
 		});
 	}

@@ -12,16 +12,16 @@ export const Settings = () => {
 	};
 	return (
 		<>
-			<div className="p-2 w-full flex items-center bg-[#191919] text-xl gap-2">
+			<div className="bg-thamar-black flex w-full items-center gap-2 p-2 text-xl">
 				Configurações
 			</div>
 
 			<div className="p-4">
-				<button className="mt-2 bg-red-300 p-2 rounded-sm" onClick={deleteData}>
+				<button className="bg-orange mt-2 rounded-sm p-2" onClick={deleteData}>
 					Excluir dados
 				</button>
-				<div className="text-sm">
-					Exclui todas as playlists e músicas baixadas
+				<div className="mt-2 text-xs">
+					*Exclui todas as playlists e músicas salvas
 				</div>
 			</div>
 		</>

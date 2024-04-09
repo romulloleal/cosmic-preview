@@ -3,11 +3,15 @@ export interface ITrack {
 	deezerId: number;
 	title: string;
 	thumbnail: string;
-	artist: string;
+	artist: {
+		id: number;
+		name: string;
+	};
+	album: string;
 	duration: {
 		seconds: number;
 		label: string;
 	};
 	preview: string;
-	bgColor: string;
+	bgColor?: string;
 }

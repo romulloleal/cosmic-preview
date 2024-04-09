@@ -9,7 +9,7 @@ export const App = () => {
 	}, []);
 
 	return (
-		<main className="bg-[#101010] text-white h-dvh overflow-y-hidden">
+		<main className="bg-dark h-dvh overflow-y-hidden text-white">
 			<Routes />
 		</main>
 	);

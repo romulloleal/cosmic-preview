@@ -1,16 +1,17 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Default } from '@/layouts/Default';
+import { DefaultLayout } from '@/layouts/Default';
 
 import { Home } from './Home';
-import { Library } from './Library';
+import { Playlist } from './Playlist';
 import { PlaylistTracks } from './PlaylistTracks';
+import { Search } from './Search';
 import { Settings } from './Settings';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Default />,
+		element: <DefaultLayout />,
 		errorElement: <>Oops</>,
 		children: [
 			{
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: '/library',
-				element: <Library />,
+				path: '/search',
+				element: <Search />,
+			},
+			{
+				path: '/playlist',
+				element: <Playlist />,
 			},
 			{
 				path: '/playlist/:playlistUUID',

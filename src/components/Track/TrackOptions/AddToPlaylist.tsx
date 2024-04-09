@@ -51,7 +51,7 @@ export const AddToPlaylist = ({ track }: { track: ITrack }) => {
 
 	const Button = ({ ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) => {
 		return (
-			<button {...rest} className="bg-blue-500 text-xs rounded-full p-1 w-24">
+			<button {...rest} className="w-24 rounded-full bg-blue-500 p-1 text-xs">
 				Nova Playlist
 			</button>
 		);
@@ -59,7 +59,7 @@ export const AddToPlaylist = ({ track }: { track: ITrack }) => {
 	return (
 		<div>
 			<span
-				className="cursor-pointer flex gap-2 items-center"
+				className="flex cursor-pointer items-center gap-2"
 				onClick={toggleDrawer}
 			>
 				<Icon icon="gg:add" fontSize={20} />
@@ -71,27 +71,26 @@ export const AddToPlaylist = ({ track }: { track: ITrack }) => {
 				onClose={toggleDrawer}
 				direction="bottom"
 				size={'95dvh'}
-				style={{ backgroundColor: '#101010' }}
-				className="text-base"
+				className="!bg-dark text-base"
 			>
-				<div className="bg-[#202020] px-4 py-2 text-sm justify-center flex items-center">
+				<div className="bg-thamar-black flex items-center justify-center px-4 py-2 text-sm">
 					<span className="mr-auto cursor-pointer" onClick={toggleDrawer}>
 						Cancelar
 					</span>
 					<span
-						className="bg-green-500 rounded-sm p-1 cursor-pointer text-black font-semibold"
+						className="text-dark cursor-pointer rounded-sm bg-green-500 p-1 font-semibold"
 						onClick={makeAction}
 					>
 						Salvar
 					</span>
 				</div>
 
-				<div className="flex flex-col w-full items-center mt-4">
+				<div className="mt-4 flex w-full flex-col items-center">
 					<NewPlaylist element={Button} />
 
-					<div className="w-full flex flex-col">
+					<div className="flex w-full flex-col">
 						{playlists?.map((playlist, index) => (
-							<div className="flex justify-between items-center" key={index}>
+							<div className="flex items-center justify-between" key={index}>
 								{playlist.title}{' '}
 								<Checkbox
 									color="green"
@@ -100,17 +99,17 @@ export const AddToPlaylist = ({ track }: { track: ITrack }) => {
 									className="rounded-full"
 									checked={
 										actions.find(
-											(a) => a.uuid === playlist.uuid && a.action === 'add'
+											(a) => a.uuid === playlist.uuid && a.action === 'add',
 										)
 											? true
 											: actions.find(
-													(a) =>
-														a.uuid === playlist.uuid && a.action === 'remove'
-											  )
-											? false
-											: !!playlist.tracks?.find(
-													(t) => t.deezerId === track.deezerId
-											  )
+														(a) =>
+															a.uuid === playlist.uuid && a.action === 'remove',
+												  )
+												? false
+												: !!playlist.tracks?.find(
+														(t) => t.deezerId === track.deezerId,
+													)
 									}
 									onChange={(e) => editAction(playlist.uuid, e.target.checked)}
 								/>

@@ -18,8 +18,8 @@ export default defineConfig({
 			// static assets in the public folder
 			includeAssets: ['**/*'],
 			manifest: {
-				theme_color: '#101010',
-				background_color: '#101010',
+				theme_color: '#121212',
+				background_color: '#121212',
 				display: 'fullscreen',
 				scope: '/',
 				start_url: '/',
@@ -58,5 +58,13 @@ export default defineConfig({
 	server: {
 		host: '0.0.0.0',
 		port: 3001,
+		proxy: {
+			'/deezer-api': {
+				target: 'https://api.deezer.com',
+				changeOrigin: true,
+				secure: false,
+				rewrite: (path) => path.replace(/^\/deezer-api/, ''),
+			},
+		},
 	},
 });

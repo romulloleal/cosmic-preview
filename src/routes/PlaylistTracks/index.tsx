@@ -33,9 +33,9 @@ export const PlaylistTracks = () => {
 
 	return (
 		<>
-			<div className="p-2 w-full flex items-center bg-[#191919] text-xl gap-2">
+			<div className="bg-thamar-black flex w-full items-center gap-2 p-2 text-xl">
 				<Icon
-					onClick={() => navigate('/library')}
+					onClick={() => navigate('/playlist')}
 					icon="mdi:keyboard-arrow-left"
 					fontSize={30}
 				/>

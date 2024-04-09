@@ -19,25 +19,25 @@ export const Track = ({
 	return (
 		<div
 			onClick={callback}
-			className={`flex m-auto w-full items-center gap-2 py-1 px-2 hover:bg-[rgba(255,255,255,0.1)] cursor-pointer`}
+			className={`m-auto flex w-full cursor-pointer items-center gap-4 px-2 py-1 transition-all duration-200`}
 		>
-			<div className="relative flex justify-center items-center w-[60px]">
-				<TrackImage
-					thumbnail={track.thumbnail}
-					className="w-full object-contain"
-				/>
-			</div>
+			<TrackImage
+				thumbnail={track.thumbnail}
+				size={50}
+				className="rounded-sm"
+			/>
 
-			<div className="flex flex-col text-sm truncate w-[calc(100%_-_60px)]">
+			<div className="flex flex-col truncate text-sm">
 				<span
-					className={`font-semibold truncate ${
-						nowPlaying?.deezerId === track.deezerId && 'text-green-500'
+					className={`truncate font-semibold ${
+						nowPlaying?.deezerId === track.deezerId && 'text-orange'
 					}`}
 				>
 					{track.title}
 				</span>
-				<span>{track.artist}</span>
+				<span>{track.artist.name}</span>
 			</div>
+
 			<div className="ml-auto" onClick={(e) => e.stopPropagation()}>
 				<TrackOptions track={track} playlist={playlist} />
 			</div>

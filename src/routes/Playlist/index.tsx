@@ -3,11 +3,11 @@ import { ButtonHTMLAttributes } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 
 import { Icon } from '@/components/Icon';
-import { Playlist } from '@/components/Playlist';
+import { Playlist as PlaylistComponent } from '@/components/Playlist';
 import { NewPlaylist } from '@/components/Playlist/NewPlaylist';
 import { db } from '@/lib/db';
 
-export const Library = () => {
+export const Playlist = () => {
 	const playlists = useLiveQuery(async () => await db.playlists.toArray());
 
 	const Button = ({ ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) => {
@@ -19,12 +19,12 @@ export const Library = () => {
 	};
 	return (
 		<>
-			<div className="p-2 w-full flex items-center bg-[#191919] text-xl">
+			<div className="bg-thamar-black flex w-full items-center p-2 text-xl">
 				Suas Playlists
 				<NewPlaylist element={Button} />
 			</div>
 			{playlists?.map((playlist, index) => (
-				<Playlist key={index} playlist={playlist} />
+				<PlaylistComponent key={index} playlist={playlist} />
 			))}
 		</>
 	);

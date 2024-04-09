@@ -35,23 +35,22 @@ export const NewPlaylist = ({
 				onClose={toggleDrawer}
 				direction="bottom"
 				size={'95dvh'}
-				style={{ backgroundColor: '#101010' }}
-				className="text-base"
+				className="!bg-dark text-base"
 			>
-				<div className="bg-[#202020] px-4 py-2 text-sm justify-center flex items-center">
+				<div className="bg-thamar-black flex items-center justify-center px-4 py-2 text-sm">
 					<span className="mr-auto cursor-pointer" onClick={toggleDrawer}>
 						Cancelar
 					</span>
 					<span
-						className="bg-green-500 rounded-sm p-1 cursor-pointer text-black font-semibold"
+						className="text-dark cursor-pointer rounded-sm bg-green-500 p-1 font-semibold"
 						onClick={create}
 					>
 						Salvar
 					</span>
 				</div>
-				<div className="w-full flex flex-col items-center gap-10">
+				<div className="flex w-full flex-col items-center gap-10">
 					<span className="mt-20">Dê um nome a sua playlist</span>
-					<div className="w-10/12 flex items-center justify-center border-b border-[rgba(255,255,255,0.3)]">
+					<div className="flex w-10/12 items-center justify-center border-b border-white/30">
 						<input
 							className="bg-transparent text-center text-4xl"
 							value={name}

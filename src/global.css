@@ -10,3 +10,21 @@
 *:focus {
 	outline: none;
 }
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #999999;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+}

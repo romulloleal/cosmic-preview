@@ -9,7 +9,7 @@ export const AddToQueue = ({
 	track: ITrack;
 	callback: () => void;
 }) => {
-	const { queue, setQueue, playSong } = usePlayer();
+	const { queue, setQueue, playSong, nowPlaying } = usePlayer();
 
 	const isInQueue = queue.find((q) => q.deezerId === track.deezerId);
 
@@ -17,7 +17,7 @@ export const AddToQueue = ({
 		if (!isInQueue) {
 			setQueue([...queue, track]);
 			callback();
-			if (!queue.length) {
+			if (!nowPlaying) {
 				playSong(track);
 			}
 		}

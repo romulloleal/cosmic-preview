@@ -27,7 +27,7 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const [queue, setQueue] = useState<ITrack[]>([]);
 	const [playlistUUID, setPlaylistUUID] = useState<string | undefined>(
-		undefined
+		undefined,
 	);
 	const [nowPlaying, setNowPlaying] = useState<ITrack & { song: string }>();
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -84,7 +84,8 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 			if ('mediaSession' in navigator) {
 				navigator.mediaSession.metadata = new MediaMetadata({
 					title: track.title,
-					artist: track.artist,
+					artist: track.artist.name,
+					album: track.album,
 					artwork: [{ src: track.thumbnail }],
 				});
 			}
@@ -119,7 +120,7 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 		if (!nowPlaying) return;
 		const currentPlaying = track || nowPlaying;
 		const trackCurrentQueueIndex = queue.findIndex(
-			(q) => q.deezerId === currentPlaying.deezerId
+			(q) => q.deezerId === currentPlaying.deezerId,
 		);
 		if (trackCurrentQueueIndex !== queue.length - 1) {
 			playSong(queue[trackCurrentQueueIndex + 1]);
@@ -132,7 +133,7 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 		if (!nowPlaying) return;
 		const currentPlaying = track || nowPlaying;
 		const trackCurrentQueueIndex = queue.findIndex(
-			(q) => q.deezerId === currentPlaying.deezerId
+			(q) => q.deezerId === currentPlaying.deezerId,
 		);
 		if (trackCurrentQueueIndex !== 0) {
 			playSong(queue[trackCurrentQueueIndex - 1]);
