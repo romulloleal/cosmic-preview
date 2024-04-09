@@ -1,0 +1,10 @@
+[[redirects]];
+force = true;
+from = '/deezer-api/*';
+status = 200;
+to = '/https://api.deezer.com/:splat';
+
+[[redirects]];
+from = '/*';
+status = 200;
+to = '/index.html';
