@@ -2,7 +2,7 @@
 force = true;
 from = '/deezer-api/*';
 status = 200;
-to = '/https://api.deezer.com/:splat';
+to = 'https://api.deezer.com/:splat';
 
 [[redirects]];
 from = '/*';
