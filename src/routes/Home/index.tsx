@@ -5,7 +5,7 @@ export function Home() {
 	useQuery({
 		queryKey: ['chart'],
 		queryFn: async () => {
-			await axios.get(`deezer/artist/61145262/top?limit=50`);
+			await axios.get(`deezer-api/artist/61145262/top?limit=50`);
 		},
 	});
 	return <></>;
